@@ -1,23 +1,40 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, 
+  Text, 
+  View, 
+  Image } from 'react-native';
 
-export default class Bananas extends React.Component {
-  render() {
-    let pic = {
-      uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
-    };
+import {
+  StackNavigator,
+} from 'react-navigation';
+
+import HomeScreen from './components/screens/HomeScreen';
+
+export default class AppApp extends React.Component{
+  render(){
     return (
-      <Image source={pic} style={{width: 193, height: 110}}/>
-    );
+      <App/>
+    )
   }
 }
 
+export const App = StackNavigator({
+  Home: { screen: HomeScreen}
+});
+
+
+/*class SearchPage extends React.Component {
+  render() {
+    return <Text style={styles.description}>Search for houses to buy!</Text>;
+  }
+}*/
+
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  description: {
+    fontSize: 18,
+    textAlign: 'center',
+    color: '#656565',
+    marginTop: 65,
   },
 });
