@@ -4,6 +4,9 @@ import { StyleSheet,
   View, 
   Image } from 'react-native';
 
+import { TabViewAnimated, TabViewPage, TabBarTop } from 'react-native-tab-view';
+
+
 import {
   StackNavigator,
 } from 'react-navigation';
