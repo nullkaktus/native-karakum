@@ -1,8 +1,12 @@
+
 import React from 'react';
 import { View, StyleSheet, Dimensions } from 'react-native';
 import { TabViewAnimated, TabBar, SceneMap } from 'react-native-tab-view';
 import PeopleList from './PeopleList';
-
+import {
+  StackNavigator,
+  TabNavigator
+} from 'react-navigation';
 const initialLayout = {
   height: 0,
   width: Dimensions.get('window').width,
@@ -32,7 +36,7 @@ export default class HomeScreen extends React.Component {
   _renderScene = ({ route }) => {
     switch (route.key) {
     case 'first':
-      return <PeopleList />;
+      return <PeopleList navigation={this.props.navigation}/>;
     case 'second':
       return <SecondRoute />;
     default:
