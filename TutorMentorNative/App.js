@@ -16,6 +16,7 @@ import {
 import HomeScreen from './components/screens/HomeScreen';
 import PeopleList from './components/screens/PeopleList';
 import PersonDetail from './components/screens/PersonDetail';
+import InfoForm from './components/screens/InfoForm';
 
 export default class AppApp extends React.Component{
   render(){
@@ -39,6 +40,7 @@ export const App = StackNavigator({
       title: `${navigation.state.params.name.toUpperCase()}`,
     }),
   },
+  InfoForm: {screen: InfoForm},
 });
 
 

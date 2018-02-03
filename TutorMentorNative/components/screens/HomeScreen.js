@@ -3,6 +3,8 @@ import React from 'react';
 import { View, StyleSheet, Dimensions } from 'react-native';
 import { TabViewAnimated, TabBar, SceneMap } from 'react-native-tab-view';
 import PeopleList from './PeopleList';
+import InfoForm from './InfoForm';
+//import StepForm from './StepForm';
 import {
   StackNavigator,
   TabNavigator
@@ -38,7 +40,7 @@ export default class HomeScreen extends React.Component {
     case 'first':
       return <PeopleList navigation={this.props.navigation}/>;
     case 'second':
-      return <SecondRoute />;
+      return <InfoForm />;
     default:
       return null;
     }
