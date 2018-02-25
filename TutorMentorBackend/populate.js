@@ -43,9 +43,9 @@ const people = [
 mongoose.connect('mongodb://localhost/people');
 
 // Go through each movie
-movies.map(data => {
+people.map(data => {
   // Initialize a model with movie data
-  const movie = new People(data);
+  const person = new People(data);
   // and save it into the database
-  movie.save();
+  person.save();
 });
