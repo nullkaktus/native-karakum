@@ -8,6 +8,13 @@ import { List, ListItem, ListView } from 'react-native-elements';
 import peopleData from './people.json';
 import PersonDetail from './PersonDetail';
 
+import { connect } from 'react-redux';
+import {
+  ActivityIndicator,
+  RefreshControl,
+  // ...others
+} from 'react-native';
+
 
 export default class PeopleList extends React.Component{
 
