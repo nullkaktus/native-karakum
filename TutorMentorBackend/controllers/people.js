@@ -8,7 +8,7 @@ import moment from 'moment';
 
 const word = "Hello";
 
-export const index = (req, res, next) => {
+export const getAllInfo = (req, res, next) => {
     // Find all movies and return json response
     People.find().lean().exec((err, movies) => res.json(
       // Iterate through each movie
@@ -17,4 +17,25 @@ export const index = (req, res, next) => {
         word,     // and append days
       }))}
     ));
+  };
+
+  exports.createNewPerson = function(req, res) {
+    console.log("Hello from createNewPerson");
+    var person = new People();
+    var t = People.find().sort('-ID').limit(1).exec(function (err, num) {
+      console.log(num[0].ID);
+    });
+   
+
+    person.firstName = req.firstName;
+    person.familyName = req.familyName;
+    person.ID = People.find().sort({ID: -1}).limit(1) + 1;
+    res.send('Testing');
+   /* person.save(function(err){
+      if (err)
+        res.send(err);
+
+      console.log(person.familyName);
+      res.json({message: "Person created"});
+    }); */
   };

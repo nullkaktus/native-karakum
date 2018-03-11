@@ -3,11 +3,17 @@ import morgan from 'morgan';
 import mongoose from 'mongoose';
 import router from './router';
 
+var bodyParser = require('body-parser');
+
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost/people');
 
 // Initialize http server
 const app = express();
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 
 // Logger that outputs all requests into the console
 app.use(morgan('combined'));
