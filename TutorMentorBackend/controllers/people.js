@@ -24,18 +24,54 @@ export const getAllInfo = (req, res, next) => {
     var person = new People();
     var t = People.find().sort('-ID').limit(1).exec(function (err, num) {
       console.log(num[0].ID);
+      person.ID = num[0].ID + 1;
     });
-   
-
     person.firstName = req.firstName;
     person.familyName = req.familyName;
-    person.ID = People.find().sort({ID: -1}).limit(1) + 1;
-    res.send('Testing');
-   /* person.save(function(err){
+    //person.ID = People.find().sort({ID: -1}).limit(1) + 1;
+    person.save(function(err){
       if (err)
         res.send(err);
 
       console.log(person.familyName);
       res.json({message: "Person created"});
-    }); */
+    }); 
+  };
+
+exports.getPerson = function(req, res) {
+    People.findById(req.params.person_id, function(err, person) {
+        if (err)
+            res.send(err);
+        res.json(person);
+    });
+};
+
+exports.updatePerson = function(req, res) {
+
+  People.findById(req.params.person_id, function(err, person) {
+
+      if (err)
+          res.send(err);
+
+      person.firstName = req.firstName;  // update the bears info
+
+      // save the bear
+      person.save(function(err) {
+          if (err)
+              res.send(err);
+
+          res.json({ message: 'Person updated!' });
+      });
+
+  })};
+
+  exports.deletePerson = function (req, res){
+    People.remove({
+      _id: req.params.person_id
+      }, function(err, bear) {
+          if (err)
+            res.send(err);
+
+          res.json({ message: 'Successfully deleted' });
+        });
   };

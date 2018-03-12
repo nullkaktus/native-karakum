@@ -22,5 +22,8 @@ router.get('/', function(req, res) {
 // Handle /movies.json route with index action from movies controller
 router.route('/people.json').get(getAllInfo);
 router.route('/people').post(people_controller.createNewPerson);
+router.route('/people/:person_id').get(people_controller.getPerson)
+                                .put(people_controller.updatePerson)
+                                .delete(people_controller.deletePerson);
 
 export default router;
