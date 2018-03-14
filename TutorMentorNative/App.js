@@ -39,7 +39,7 @@ export const App = StackNavigator({
   PersonDetail: {
     screen: PersonDetail,
     navigationOptions: ({ navigation }) => ({
-      title: `${navigation.state.params.name.toUpperCase()}`,
+      title: `${navigation.state.params.firstName.toUpperCase()}`,
     }),
   },
   InfoForm: {screen: InfoForm},

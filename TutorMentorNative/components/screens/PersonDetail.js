@@ -4,15 +4,15 @@ import { Tile, List, ListItem } from 'react-native-elements';
 
 export default class PersonDetail extends Component {
   render() {
-    const { name, avatar_url, subtitle} = this.props.navigation.state.params;
+    const { firstName, familyName, subtitle} = this.props.navigation.state.params;
 
     return (
       <ScrollView>
         <Tile
-          imageSrc={{ uri:avatar_url}}
+          //imageSrc={{ uri:avatar_url}}
           featured
-          title={`${name.toUpperCase()}`}
-          caption={name}
+          title={`${familyName.toUpperCase()}`}
+          caption={firstName}
         />
 
       </ScrollView>
