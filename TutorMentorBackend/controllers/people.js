@@ -65,6 +65,20 @@ exports.updatePerson = function(req, res) {
 
   })};
 
+  exports.addMentor = function(req, res){
+    People.findById(req.params.person_id, function(err, person){
+      if (err)
+        res.send(err);
+      person.mentors.push(req.params.mentor_id);
+      person.save(function(err){
+        if(err)
+          res.send(err);
+
+        res.json({message: 'Mentor added!'});
+      });
+    })
+  };
+
   exports.deletePerson = function (req, res){
     People.remove({
       _id: req.params.person_id
